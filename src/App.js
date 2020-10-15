@@ -1,24 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import ChartContainer from './ChartContainer';
+import './App.css'
+import Header from './Header';
 
-function App() {
+const App = () => {
+  const [data, setData] = useState([null])
+  const [xPoint, setXPoint] = useState(0)
+  const [yPoint, setYPoint] = useState(0);
+  const [active, setActive] = useState(false);
+  const [resetActive, setResetActive] = useState(false);
+  
+  const handleClick = (e) => {
+    e.preventDefault();
+    if (data[0] === null) {
+      setData([...data, data.shift()])
+    }
+
+    setActive(true);
+    setResetActive(false);
+    setData([...data, 
+      { x: xPoint + 1, 
+        y: yPoint + 1, 
+        symbol: "circle", 
+        size: 3, 
+        jolly: `10/${xPoint === 0 ? '1' : xPoint + 1}/2020` }
+      ])
+      setXPoint(xPoint + 1);
+      setYPoint(yPoint + 1);
+  }
+
+  const resetCount = () => {
+    setYPoint(0);
+    setResetActive(true);
+  }
+
+  const deleteGraph = (e) => {
+    e.preventDefault();
+    setActive(!active);
+    setXPoint(0);
+    setYPoint(0);
+    setData([null]);
+    
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <ChartContainer data={data} xPoint={xPoint} yPoint={yPoint} resetActive={resetActive} active={active} handleClick={handleClick} resetCount={resetCount} deleteGraph={deleteGraph} />
     </div>
   );
 }
