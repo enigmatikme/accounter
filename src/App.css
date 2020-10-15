@@ -1,38 +1,119 @@
 .App {
   text-align: center;
+  background-color: #f3f3f3;
+  height: 100vh;
+  width: 100vw;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #161616;
+  height: 50px;
+}
+
+.header--left {
+  display: flex;
+}
+
+img {
+  height: 30px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
+}
+
+/* .header--left__content {
+  margin: 20px;
+} */
+
+.bars {
   color: white;
+  height: 100%;
+  margin-left: 20px;
 }
 
-.App-link {
-  color: #61dafb;
+.chartContainer {
+  text-align: left;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+p {
+  font-size: 25px;
+  margin-bottom: 10px;
+  font-weight: 300;
 }
+
+.chartContainer__graph {
+  background-color: white;
+  /* width: 480px; */
+  width: 100%;
+}
+
+.actionItems {
+  display: flex;
+  background-color: white;
+  padding-bottom: 64px;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  outline: none;
+}
+
+.icon {
+  height: 20px;
+  margin-right: 20px;
+  color: rgba(0, 0, 0, 0.7);
+  background-color: white;
+  transform: rotate(-45deg);
+  font-size: 0.85rem;
+}
+
+.resetActive {
+  color: darkgrey
+}
+
+.btn--primary {
+  background-color: #10827e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  height: 48px;
+  width: 64px;
+  margin-right: 20px;
+}
+
+.active--primary { 
+  background-color: #10827e;
+  width: 48px;
+
+}
+
+.inactive {
+  background-color: white;
+  color: rgb(216, 214, 214);
+  border: none;
+  border-radius: 5px;
+  height: 48px;
+  width: 64px;
+}
+
+.active {
+  background-color: white;
+  color: #5f7cc0;
+  border: none;
+  border-radius: 5px;
+  height: 48px;
+  width: 64px;
+}
+
+text {
+  color: red;
+  
+}
+
