@@ -30,7 +30,7 @@ const Graph = ({data, xPoint}) => {
                       {
                         target: "labels",
                         mutation: (props) => {
-                            console.log("PROPS++++", props)
+                            // console.log("PROPS++++", props)
                             return props.text === props.datum.jolly ?
                             null : { text: props.datum.jolly }
                                 // return props.text.length > 0 ?
