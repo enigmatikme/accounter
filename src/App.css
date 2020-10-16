@@ -9,10 +9,17 @@
   display: flex;
   background-color: #161616;
   height: 50px;
+  justify-content: space-between;
 }
 
 .header--left {
   display: flex;
+}
+
+.bars {
+  color: white;
+  height: 100%;
+  margin-left: 20px;
 }
 
 img {
@@ -26,11 +33,24 @@ img {
   margin: 20px;
 } */
 
-.bars {
+
+.header--right__content {
   color: white;
   height: 100%;
-  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 1.2rem;
 }
+
+.header--right__content.appsOutline {
+  height: 100%;
+  font-size: 1.6rem;
+}
+
+
+.bell {
+  font-size: 1.2rem;
+}
+
 
 .chartContainer {
   text-align: left;
@@ -112,8 +132,8 @@ button {
   width: 64px;
 }
 
-text {
-  color: red;
-  
+tspan {
+  border: 1px solid black;
+
 }
 

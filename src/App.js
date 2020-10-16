@@ -9,13 +9,10 @@ const App = () => {
   const [yPoint, setYPoint] = useState(0);
   const [active, setActive] = useState(false);
   const [resetActive, setResetActive] = useState(false);
-  
-  const handleClick = (e) => {
-    e.preventDefault();
-    if (data[0] === null) {
-      setData([...data, data.shift()])
-    }
+  const [display, setDisplay] = useState(false);
 
+  
+  const handleClick = () => {
     setActive(true);
     setResetActive(false);
     setData([...data, 
@@ -23,7 +20,7 @@ const App = () => {
         y: yPoint + 1, 
         symbol: "circle", 
         size: 3, 
-        jolly: `10/${xPoint === 0 ? '1' : xPoint + 1}/2020` }
+        date: `10/${xPoint === 0 ? '1' : xPoint + 1}/2020` }
       ])
       setXPoint(xPoint + 1);
       setYPoint(yPoint + 1);
@@ -36,17 +33,21 @@ const App = () => {
 
   const deleteGraph = (e) => {
     e.preventDefault();
+    setDisplay(false);
     setActive(!active);
     setXPoint(0);
     setYPoint(0);
     setData([null]);
-    
+  }
+
+  const displayText = () => {
+    setDisplay(!display);
   }
 
   return (
     <div className="App">
       <Header />
-      <ChartContainer data={data} xPoint={xPoint} yPoint={yPoint} resetActive={resetActive} active={active} handleClick={handleClick} resetCount={resetCount} deleteGraph={deleteGraph} />
+      <ChartContainer data={data} xPoint={xPoint} yPoint={yPoint} displayText={displayText} display={display} resetActive={resetActive} active={active} handleClick={handleClick} resetCount={resetCount} deleteGraph={deleteGraph} />
     </div>
   );
 }

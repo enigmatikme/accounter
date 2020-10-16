@@ -3,13 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUndo } from '@fortawesome/free-solid-svg-icons'
 
 const ActionItems = ({active, resetActive, yPoint, handleClick, resetCount, deleteGraph}) => {
-  
   let displayVal = yPoint;
+
   if (active) {
     displayVal = 0;
   } else {
     displayVal = 1;
   }
+  
   return  (
     <div className="actionItems">
       { active && <FontAwesomeIcon className={`btn icon ${resetActive && "resetActive"}`} onClick={deleteGraph} icon={faUndo} size="xs" />}
