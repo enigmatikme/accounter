@@ -9,7 +9,6 @@ const App = () => {
   const [yPoint, setYPoint] = useState(0);
   const [active, setActive] = useState(false);
   const [resetActive, setResetActive] = useState(false);
-  const [display, setDisplay] = useState(false);
 
   
   const handleClick = () => {
@@ -33,21 +32,16 @@ const App = () => {
 
   const deleteGraph = (e) => {
     e.preventDefault();
-    setDisplay(false);
     setActive(!active);
     setXPoint(0);
     setYPoint(0);
     setData([null]);
   }
 
-  const displayText = () => {
-    setDisplay(!display);
-  }
-
   return (
     <div className="App">
       <Header />
-      <ChartContainer data={data} xPoint={xPoint} yPoint={yPoint} displayText={displayText} display={display} resetActive={resetActive} active={active} handleClick={handleClick} resetCount={resetCount} deleteGraph={deleteGraph} />
+      <ChartContainer data={data} xPoint={xPoint} yPoint={yPoint} resetActive={resetActive} active={active} handleClick={handleClick} resetCount={resetCount} deleteGraph={deleteGraph} />
     </div>
   );
 }

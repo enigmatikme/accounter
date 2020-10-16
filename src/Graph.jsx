@@ -27,7 +27,7 @@ const Graph = ({data}) => {
         events={[{
             target: "data",
             eventHandlers: {
-              onClick: (e) => {
+              onClick: () => {
                 setRender(!render);
                   return [
                     {
